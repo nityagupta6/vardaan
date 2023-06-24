@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "role is required"],
     //    enum: ["organisation", "donar", "hospital"],
-        enum: ["donar", "hospital"],
+      enum: ["donar", "hospital"],
     },
     name: {
       type: String,
@@ -60,3 +60,4 @@ const userSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("userModel", userSchema);
+
