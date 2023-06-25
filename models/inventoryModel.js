@@ -21,9 +21,8 @@ const inventorySchema = new mongoose.Schema(
       required: [true, "Donar Email is Required"],
     },
     admin: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "userModel",
-        required: [true, "Admin is required"],
+      type: String,
+      default: '649811c005570ebcca99edc3', 
     },
     hospital: {
       type: mongoose.Schema.Types.ObjectId,

@@ -20,14 +20,19 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
+
 // routes
 // test route- 1
 app.use("/api/v1/test", require("./routes/testRoutes"))
 // register route
 app.use("/api/v1/auth", require("./routes/authRoutes"))
+// inventory route
+app.use("/api/v1/inventory",require("./routes/inventoryRoutes"))
+
 
 // port
 const PORT= process.env.PORT || 8080
+
 
 // listen
 app.listen(PORT, () => {
