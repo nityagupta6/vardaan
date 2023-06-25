@@ -1,6 +1,6 @@
 const JWT=require("jsonwebtoken")
 
-modules.exports=async(req,res,next)=>{
+module.exports =async(req,res,next)=>{
     try {
         //extract token from header
         const token=req.headers["authorization"].split(" ")[1]
@@ -10,11 +10,10 @@ modules.exports=async(req,res,next)=>{
                 return res.status(401).send({
                     success:false,
                     message:"Auth Failed",
-                    error
                 })
             }
             else{
-                req.body.userId=decode.id 
+                req.body.userID=decode.userID 
                 next()
             }
         })
