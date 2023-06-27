@@ -17,10 +17,17 @@ const createInventoryController=async(req,res)=>{
             throw new Error("Not a hospital account")
         }
         //save record
-        const inventory=new inventoryModel(req.body)
+        const inventory=new inventoryModel({
+            inventoryType:req.body.inventoryType,
+            bloodGroup:req.body.bloodGroup,
+            quantity:req.body.quantity,
+            email:req.body.email,
+            hospital:req.body.hospital,
+            donar:req.body.donar
+        })
         await inventory.save()
         return res.status(201).send({
-            success:false,
+            success:true,
             message:"New blood record added!",
         })
     } catch (error) {
@@ -33,4 +40,23 @@ const createInventoryController=async(req,res)=>{
     }
 }
 
-module.exports={createInventoryController}
+//get inventory
+const getInventoryController=async(req,res)=>{
+    try {
+        const inventory=await inventoryModel.find({admin:req.body.userID})
+        return res.status(200).send({
+            success:true,
+            message:"Fetched all records successfully",
+            inventory,
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({
+            success:false,
+            message:"Error in getting inventory list",
+            error,
+        })
+    }
+}
+
+module.exports={createInventoryController, getInventoryController}

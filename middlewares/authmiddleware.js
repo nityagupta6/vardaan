@@ -3,7 +3,7 @@ const JWT=require("jsonwebtoken")
 module.exports =async(req,res,next)=>{
     try {
         //extract token from header
-        const token=req.headers["authorization"].split(" ")[1]
+        const token=req.header("Authorization").split(" ")[1]
         //verify token validity
         JWT.verify(token,process.env.JWT_SECRET,(err,decode)=>{
             if(err){
