@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =============
+====FORM=====
+============= */
+
+.login-banner img{
+  height: 100%;
+  width: 85%;
+}
+
+.register-banner img{
+  height: 105%;
+  width: 80%;
+}
+
+.form-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
