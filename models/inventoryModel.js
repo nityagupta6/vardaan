@@ -23,7 +23,7 @@ const inventorySchema = new mongoose.Schema(
     admin: {
       type: String,
       ref: "userModel",
-      default: '649811c005570ebcca99edc3', 
+      default: '649811c005570ebcca99edc3',
     },
     hospital: {
       type: mongoose.Schema.Types.ObjectId,
