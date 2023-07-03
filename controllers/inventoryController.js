@@ -11,12 +11,12 @@ const createInventoryController = async (req, res) => {
         if (!user) {
             throw new Error("User not registered")
         }
-        if (inventoryType === "in" && user.role !== "donar") {
-            throw new Error("Not a donar account")
-        }
-        if (inventoryType === "out" && user.role !== "hospital") {
-            throw new Error("Not a hospital account")
-        }
+        // if (inventoryType === "in" && user.role !== "donar") {
+        //     throw new Error("Not a donar account")
+        // }
+        // if (inventoryType === "out" && user.role !== "hospital") {
+        //     throw new Error("Not a hospital account")
+        // }
 
         if (req.body.inventoryType == "out") {
             const requestedBloodGroup = req.body.bloodGroup;
@@ -117,13 +117,14 @@ const getInventoryController = async (req, res) => {
     }
 }
 
-// GET DONAR REOCRDS
+// GET DONAR RECORDS
 const getDonarsController = async (req, res) => {
     try {
-        const admin = req.body.admin;
+        const admin = req.body.userId;
         //find donars
         const donorId = await inventoryModel.distinct("donar", {
             admin,
+            inventoryType: "in",
         });
         // console.log(donorId);
         const donars = await userModel.find({ _id: { $in: donorId } });
