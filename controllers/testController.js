@@ -1,10 +1,10 @@
 //controller
-const testController = (req,res) => {
+const testController = (req, res) => {
     res.status(200).send({
-        message: "welcome user",
+        message: "Welcome user",
         success: true,
     })
 }
 
 //export
-module.exports = {testController}
+module.exports = { testController }

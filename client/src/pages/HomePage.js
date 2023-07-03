@@ -30,7 +30,7 @@ const HomePage = () => {
   }, []);
   return (
     <Layout>
-      {user?.role === "admin" && navigate("/admin")}
+      {/* {user?.role === "admin" && navigate("/")} */}
       {error && <span>{alert(error)}</span>}
       {loading ? (
         <Spinner />
@@ -61,7 +61,7 @@ const HomePage = () => {
                   <tr key={record._id}>
                     <td>{record.bloodGroup}</td>
                     <td>{record.inventoryType}</td>
-                    <td>{record.quantity} (ML)</td>
+                    <td>{record.quantity} ml</td>
                     <td>{record.email}</td>
                     <td>
                       {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}

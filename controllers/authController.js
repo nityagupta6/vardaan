@@ -10,7 +10,7 @@ const registerController = async (req, res) => {
     if (exisitingUser) {
       return res.status(200).send({
         success: false,
-        message: "User Already exists",
+        message: "User already exists",
       });
     }
     //hash password
@@ -22,14 +22,14 @@ const registerController = async (req, res) => {
     await user.save();
     return res.status(201).send({
       success: true,
-      message: "User Registered Successfully",
+      message: "User registered successfully",
       user,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error In Register API",
+      message: "Error in register API",
       error,
     });
   }
@@ -55,7 +55,7 @@ const loginController = async (req, res) => {
       })
     }
     //assigning token
-    const token = await jwt.sign({ userID: user._id }, process.env.JWT_SECRET, { expiresIn: '90d' })
+    const token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' })
     return res.status(200).send({
       success: true,
       message: "Logged in successfully!",
@@ -75,7 +75,7 @@ const loginController = async (req, res) => {
 //get current user
 const currentUserController = async (req, res) => {
   try {
-    const user = await userModel.findOne({ _id: req.body.userID })
+    const user = await userModel.findOne({ _id: req.body.userId })
     return res.status(200).send({
       success: true,
       message: "User fetched successfully",

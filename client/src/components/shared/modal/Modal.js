@@ -7,7 +7,7 @@ const Modal = () => {
     const [inventoryType, setInventoryType] = useState("in");
     const [bloodGroup, setBloodGroup] = useState("");
     const [quantity, setQuantity] = useState(0);
-    const [donarEmail, setDonarEmail] = useState("");
+    // const [donarEmail, setDonarEmail] = useState("");
     const { user } = useSelector((state) => state.auth);
     // handle modal data
     const handleModalSubmit = async () => {
@@ -17,7 +17,7 @@ const Modal = () => {
             }
             const { data } = await API.post("/inventory/create-inventory", {
                 // donarEmail,
-                email: donarEmail,
+                email: user?.email,
                 donar: user?._id,
                 // organisation: user?._id,
                 admin: '649811c005570ebcca99edc3',
@@ -95,8 +95,8 @@ const Modal = () => {
                                 aria-label="Default select example"
                                 onChange={(e) => setBloodGroup(e.target.value)}
                             >
-                                <option defaultValue={"Open this select menu"}>
-                                    Open this select menu
+                                <option defaultValue={"Select the blood group"}>
+                                    Select the blood group
                                 </option>
                                 <option value={"O+"}>O+</option>
                                 <option value={"O-"}>O-</option>
@@ -107,13 +107,14 @@ const Modal = () => {
                                 <option value={"B+"}>B+</option>
                                 <option value={"B-"}>B-</option>
                             </select>
-                            <InputType
+                            {/* <InputType
                                 labelText={"Donar Email"}
                                 labelFor={"donarEmail"}
                                 inputType={"email"}
                                 value={donarEmail}
                                 onChange={(e) => setDonarEmail(e.target.value)}
-                            />
+                            /> */}
+                            &nbsp;
                             <InputType
                                 labelText={"Quantity (ml)"}
                                 labelFor={"quantity"}
