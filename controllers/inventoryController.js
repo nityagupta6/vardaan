@@ -5,7 +5,7 @@ const inventoryModel = require("../models/inventoryModel")
 //Create inventory
 const createInventoryController = async (req, res) => {
     try {
-        const { email, inventoryType } = req.body
+        const { email } = req.body
         //check if user exists
         const user = await userModel.findOne({ email });
         if (!user) {
@@ -117,4 +117,31 @@ const getInventoryController = async (req, res) => {
     }
 }
 
-module.exports = { createInventoryController, getInventoryController }
+// GET DONAR REOCRDS
+const getDonarsController = async (req, res) => {
+    try {
+        const admin = req.body.admin;
+        //find donars
+        const donorId = await inventoryModel.distinct("donar", {
+            admin,
+        });
+        // console.log(donorId);
+        const donars = await userModel.find({ _id: { $in: donorId } });
+
+        return res.status(200).send({
+            success: true,
+            message: "Donar Record Fetched Successfully",
+            donars,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            success: false,
+            message: "Error in Donar records",
+            error,
+        });
+    }
+};
+
+
+module.exports = { createInventoryController, getInventoryController, getDonarsController }

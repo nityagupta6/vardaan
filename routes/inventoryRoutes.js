@@ -1,17 +1,21 @@
-const express=require("express");
-const authmiddleware=require("../middlewares/authmiddleware");
+const express = require("express");
+const authmiddleware = require("../middlewares/authmiddleware");
 const {
     createInventoryController,
     getInventoryController,
-}=require("../controllers/inventoryController");
+    getDonarsController,
+} = require("../controllers/inventoryController");
 
 
 
-const router=express.Router();
+const router = express.Router();
 
 // routes
 // ADD INVENTORY || POST
-router.post("/create-inventory",authmiddleware, createInventoryController)
-router.get("/get-inventory",authmiddleware, getInventoryController)
+router.post("/create-inventory", authmiddleware, createInventoryController)
+router.get("/get-inventory", authmiddleware, getInventoryController)
 
-module.exports=router;
+//GET DONAR RECORDS
+router.get("/get-donars", authmiddleware, getDonarsController);
+
+module.exports = router;
