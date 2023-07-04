@@ -41,7 +41,7 @@ const createInventoryController = async (req, res) => {
             // console.log("Total In", totalInOfRequestedBlood);
             const totalIn = totalInOfRequestedBlood[0]?.total || 0;
 
-            //calculate OUT Blood Quantity
+            //Calculate 'out' Blood Quantity
             const totalOutOfRequestedBloodGroup = await inventoryModel.aggregate([
                 {
                     $match: {
@@ -59,9 +59,9 @@ const createInventoryController = async (req, res) => {
             ]);
             const totalOut = totalOutOfRequestedBloodGroup[0]?.total || 0;
 
-            //In & Out Calc
+            //'in' & 'out' calculation
             const availableQuantityOfBloodGroup = totalIn - totalOut;
-            //quantity validation
+            //Quantity validation
             if (availableQuantityOfBloodGroup < requestedQuantityOfBlood) {
                 return res.status(500).send({
                     success: false,
@@ -198,10 +198,35 @@ const getDonarsForHospitalController = async (req, res) => {
     }
 };
 
+// GET HOSPITAL BLOOD RECORDS
+const getInventoryHospitalController = async (req, res) => {
+    try {
+        const inventory = await inventoryModel
+            .find(req.body.filters)
+            .populate("donar")
+            .populate("hospital")
+            // .populate("organisation")
+            .sort({ createdAt: -1 });
+        return res.status(200).send({
+            success: true,
+            message: "Get hospital consumer records successfully",
+            inventory,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            success: false,
+            message: "Error In Get consumer Inventory",
+            error,
+        });
+    }
+};
+
 module.exports = {
     createInventoryController,
     getInventoryController,
     getDonarsController,
     getHospitalController,
     getDonarsForHospitalController,
+    getInventoryHospitalController,
 }
