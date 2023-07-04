@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/shared/Layout/Layout";
 import API from "../../services/API";
+import { useSelector } from "react-redux";
 import moment from "moment";
 
 const Hospitals = () => {
+    const { user } = useSelector((state) => state.auth);
     const [data, setData] = useState([]);
     //find donar records
     const getDonars = async () => {
         try {
-            const { data } = await API.get("/inventory/get-hospitals");
-            //   console.log(data);
-            if (data?.success) {
-                setData(data?.hospitals);
+            if (user?.role === "admin") {
+                const { data } = await API.get("/inventory/get-hospitals");
+                //   console.log(data);
+                if (data?.success) {
+                    setData(data?.hospitals);
+                }
             }
+            if (user?.role === "donar") {
+                const { data } = await API.get("/inventory/get-hospitals-for-donar");
+                //   console.log(data);
+                if (data?.success) {
+                    setData(data?.hospitals);
+                }
+            }
+
         } catch (error) {
             console.log(error);
         }
@@ -20,7 +32,7 @@ const Hospitals = () => {
 
     useEffect(() => {
         getDonars();
-    }, []);
+    }, [user]);
 
     return (
         <Layout>
