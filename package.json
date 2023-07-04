@@ -1,13 +1,14 @@
 {
   "name": "vardaan",
   "version": "1.0.0",
-  "description": "blood bank management system",
+  "description": "A blood bank management system",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm i"
   },
   "author": "nitya",
   "license": "ISC",
