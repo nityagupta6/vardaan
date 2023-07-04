@@ -9,12 +9,21 @@ import PublicRoute from "./components/Routes/PublicRoute";
 import Donar from "./pages/Dashboard/Donar";
 import Hospitals from "./pages/Dashboard/Hospitals";
 import Consumer from "./pages/Dashboard/Consumer";
+import Donation from "./pages/Dashboard/Donation";
 
 function App() {
   return (
     <div >
       <ToastContainer />
       <Routes>
+        <Route
+          path="/donation"
+          element={
+            <ProtectedRoute>
+              <Donation />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/consumer"
           element={
