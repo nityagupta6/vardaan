@@ -18,9 +18,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             <form
                 onSubmit={(e) => {
                     if (formType === "login")
-                        return handleLogin(e, email, password, role);
+                        handleLogin(e, email, password, role);
                     else if (formType === "register")
-                        return handleRegister(
+                        handleRegister(
                             e,
                             name,
                             role,
@@ -210,7 +210,8 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                             <Link to="/login">Login!</Link>
                         </p>
                     )}
-
+                </div>
+                <div className="d-flex flex-row justify-content-center">
                     <button className="btn btn-primary" type="submit">
                         {submitBtn}
                     </button>

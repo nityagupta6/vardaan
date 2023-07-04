@@ -10,12 +10,40 @@ import Donar from "./pages/Dashboard/Donar";
 import Hospitals from "./pages/Dashboard/Hospitals";
 import Consumer from "./pages/Dashboard/Consumer";
 import Donation from "./pages/Dashboard/Donation";
+import AdminHome from "./pages/Homepages/AdminHome";
+import DonarHome from "./pages/Homepages/DonarHome";
+import HospitalHome from "./pages/Homepages/HospitalHome";
+
 
 function App() {
   return (
     <div >
       <ToastContainer />
       <Routes>
+        <Route
+          path="/hospitalhome"
+          element={
+            <ProtectedRoute>
+              <HospitalHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/donarhome"
+          element={
+            <ProtectedRoute>
+              <DonarHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminHome />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/donation"
           element={

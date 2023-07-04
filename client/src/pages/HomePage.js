@@ -30,7 +30,9 @@ const HomePage = () => {
   }, []);
   return (
     <Layout>
-      {/* {user?.role === "admin" && navigate("/")} */}
+      {/* {user?.role === "admin" && navigate("/admin")}; */}
+      {user?.role === "donar" && navigate("/donarhome")};
+      {user?.role === "hospital" && navigate("/hospitalhome")};
       {error && <span>{alert(error)}</span>}
       {loading ? (
         <Spinner />
