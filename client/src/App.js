@@ -13,6 +13,7 @@ import Donation from "./pages/Dashboard/Donation";
 import AdminHome from "./pages/Homepages/AdminHome";
 import DonarHome from "./pages/Homepages/DonarHome";
 import HospitalHome from "./pages/Homepages/HospitalHome";
+import Analytics from "./pages/Dashboard/Analytics";
 
 
 function App() {
@@ -20,6 +21,14 @@ function App() {
     <div >
       <ToastContainer />
       <Routes>
+        <Route
+          path="/analytics"
+          element={
+            <ProtectedRoute>
+              <Analytics />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/hospitalhome"
           element={

@@ -1,10 +1,11 @@
 import React from "react";
 import { BiDonateBlood, BiUserCircle } from "react-icons/bi";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 const Header = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // logout handler
   const handleLogout = () => {
@@ -29,28 +30,40 @@ const Header = () => {
                 <span className="badge bg-secondary">{user?.role}</span>
               </p>
             </li>
+            {location.pathname === "/admin" ||
+              location.pathname === "/donarhome" ||
+              location.pathname === "/hospitalhome" ? (
+              <li className="nav-item mx-3">
+                <Link to="/analytics" className="nav-link">
+                  Analytics
+                </Link>
+              </li>
+            ) : (
+              <>
+                {user?.role === "admin" && (
+                  <li className="nav-item mx-3">
+                    <Link to="/admin" className="nav-link">
+                      Home
+                    </Link>
+                  </li>
+                )}
+                {user?.role === "donar" && (
+                  <li className="nav-item mx-3">
+                    <Link to="/donarhome" className="nav-link">
+                      Home
+                    </Link>
+                  </li>
+                )}
+                {user?.role === "hospital" && (
+                  <li className="nav-item mx-3">
+                    <Link to="/hospitalhome" className="nav-link">
+                      Home
+                    </Link>
+                  </li>
+                )}
+              </>
+            )}
 
-            {user?.role === "admin" && (
-              <li className="nav-item mx-3">
-                <Link to="/admin" className="nav-link">
-                  Home
-                </Link>
-              </li>
-            )}
-            {user?.role === "donar" && (
-              <li className="nav-item mx-3">
-                <Link to="/donarhome" className="nav-link">
-                  Home
-                </Link>
-              </li>
-            )}
-            {user?.role === "hospital" && (
-              <li className="nav-item mx-3">
-                <Link to="/hospitalhome" className="nav-link">
-                  Home
-                </Link>
-              </li>
-            )}
             <li className="nav-item mx-3">
               <button className="btn btn-danger" onClick={handleLogout}>
                 Logout
