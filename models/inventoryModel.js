@@ -22,7 +22,7 @@ const inventorySchema = new mongoose.Schema(
     },
     admin: {
       type: String,
-      ref: "userModel",
+      // ref: "userModel",
       default: '649811c005570ebcca99edc3',
     },
     hospital: {

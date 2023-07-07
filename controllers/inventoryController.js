@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const userModel = require("../models/userModel")
 const inventoryModel = require("../models/inventoryModel")
 
@@ -21,7 +21,7 @@ const createInventoryController = async (req, res) => {
         if (req.body.inventoryType == "out") {
             const requestedBloodGroup = req.body.bloodGroup;
             const requestedQuantityOfBlood = req.body.quantity;
-            const admin = new mongoose.Types.ObjectId(req.body.admin);
+            // const admin = new mongoose.Types.ObjectId(req.body.admin);
             //Calculate blood quantity
             const totalInOfRequestedBlood = await inventoryModel.aggregate([
                 {
@@ -249,6 +249,30 @@ const getHospitalForDonarController = async (req, res) => {
     }
 };
 
+// GET BLOOD RECORD OF 3
+const getRecentInventoryController = async (req, res) => {
+    try {
+        const inventory = await inventoryModel
+            .find({
+                organisation: req.body.userId,
+            })
+            .limit(3)
+            .sort({ createdAt: -1 });
+        return res.status(200).send({
+            success: true,
+            message: "Recent inventory data fetched",
+            inventory,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            success: false,
+            message: "Error in recent inventory API",
+            error,
+        });
+    }
+};
+
 module.exports = {
     createInventoryController,
     getInventoryController,
@@ -257,4 +281,5 @@ module.exports = {
     getDonarsForHospitalController,
     getInventoryHospitalController,
     getHospitalForDonarController,
+    getRecentInventoryController,
 }
