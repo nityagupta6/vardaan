@@ -8,9 +8,6 @@ Vardaan is a purpose-built website that functions as a blood bank management sys
 With its robust functionality, Vardaan seamlessly bridges the gap between blood donors and recipients, playing a crucial role in ensuring a steady supply of blood for medical emergencies and treatments. By leveraging this comprehensive blood bank management system, Vardaan not only streamlines the donation process but also facilitates seamless coordination and accessibility for hospitals and medical professionals. With its user-friendly interface and efficient data handling capabilities, the website acts as a reliable platform that facilitates the noble act of blood donation and aids in saving countless lives.
 </br>
 </br>
-> Website design is an extremely crucial aspect as it determines the very first impression we make on our audience. It impacts how our audience perceives us and this impression can either get them to remain on our page or leave it.
-> 
-</br>
 
 ## 🛠️Tech Stack:
 
