@@ -16,6 +16,7 @@ const {
 const router = express.Router();
 
 // routes
+
 // ADD INVENTORY || POST
 router.post("/create-inventory", authmiddleware, createInventoryController)
 router.get("/get-inventory", authmiddleware, getInventoryController)

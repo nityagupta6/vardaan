@@ -254,7 +254,7 @@ const getRecentInventoryController = async (req, res) => {
     try {
         const inventory = await inventoryModel
             .find({
-                organisation: req.body.userId,
+                admin: req.body.userId,
             })
             .limit(3)
             .sort({ createdAt: -1 });

@@ -1,6 +1,6 @@
 const inventoryModel = require("../models/inventoryModel");
 //GET BLOOD DATA
-const bloodGroupDetailsContoller = async (req, res) => {
+const bloodGroupDetailsController = async (req, res) => {
     try {
         const bloodGroups = ["O+", "O-", "AB+", "AB-", "A+", "A-", "B+", "B-"];
         const bloodGroupData = [];
@@ -26,6 +26,7 @@ const bloodGroupDetailsContoller = async (req, res) => {
                         },
                     },
                 ]);
+
                 //Count TOTAL OUT
                 const totalOut = await inventoryModel.aggregate([
                     {
@@ -43,14 +44,14 @@ const bloodGroupDetailsContoller = async (req, res) => {
                     },
                 ]);
                 //CALCULATE TOTAL
-                const availabeBlood = (totalIn[0]?.total || 0) - (totalOut[0]?.total || 0);
+                const availableBlood = (totalIn[0]?.total || 0) - (totalOut[0]?.total || 0);
 
                 //PUSH DATA
                 bloodGroupData.push({
                     bloodGroup,
                     totalIn: totalIn[0]?.total || 0,
                     totalOut: totalOut[0]?.total || 0,
-                    availabeBlood,
+                    availableBlood,
                 });
             })
         );
@@ -70,4 +71,4 @@ const bloodGroupDetailsContoller = async (req, res) => {
     }
 };
 
-module.exports = { bloodGroupDetailsContoller };
+module.exports = { bloodGroupDetailsController };

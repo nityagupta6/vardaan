@@ -30,7 +30,42 @@ const Header = () => {
                 <span className="badge bg-secondary">{user?.role}</span>
               </p>
             </li>
-            {location.pathname === "/admin" ||
+            {user?.role === "admin" && (
+              <>
+                {
+                  location.pathname === "/admin" ||
+                    location.pathname === "/donar" ||
+                    location.pathname === "/hospital" ? (
+                    <li className="nav-item mx-3">
+                      <Link to="/analytics" className="nav-link">
+                        Analytics
+                      </Link>
+                    </li>
+                  ) : (
+                    <li className="nav-item mx-3">
+                      <Link to="/admin" className="nav-link">
+                        Home
+                      </Link>
+                    </li>
+                  )
+                }
+              </>
+            )}
+            {user?.role === "donar" && (
+              <li className="nav-item mx-3">
+                <Link to="/donarhome" className="nav-link">
+                  Home
+                </Link>
+              </li>
+            )}
+            {user?.role === "hospital" && (
+              <li className="nav-item mx-3">
+                <Link to="/hospitalhome" className="nav-link">
+                  Home
+                </Link>
+              </li>
+            )}
+            {/* {location.pathname === "/admin" ||
               location.pathname === "/donarhome" ||
               location.pathname === "/hospitalhome" ? (
               <li className="nav-item mx-3">
@@ -62,7 +97,7 @@ const Header = () => {
                   </li>
                 )}
               </>
-            )}
+            )} */}
 
             <li className="nav-item mx-3">
               <button className="btn btn-danger" onClick={handleLogout}>
