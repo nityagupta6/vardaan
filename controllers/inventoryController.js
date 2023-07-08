@@ -11,22 +11,22 @@ const createInventoryController = async (req, res) => {
         if (!user) {
             throw new Error("User not registered")
         }
-        // if (inventoryType === "in" && user.role !== "donar") {
-        //     throw new Error("Not a donar account")
-        // }
-        // if (inventoryType === "out" && user.role !== "hospital") {
-        //     throw new Error("Not a hospital account")
-        // }
+        if (req.body.inventoryType === "in" && user.role !== "donar") {
+            throw new Error("Not a donar account")
+        }
+        if (req.body.inventoryType === "out" && user.role !== "hospital") {
+            throw new Error("Not a hospital account")
+        }
 
         if (req.body.inventoryType == "out") {
             const requestedBloodGroup = req.body.bloodGroup;
             const requestedQuantityOfBlood = req.body.quantity;
-            // const admin = new mongoose.Types.ObjectId(req.body.admin);
+            const admin = req.body.userId;
             //Calculate blood quantity
             const totalInOfRequestedBlood = await inventoryModel.aggregate([
                 {
                     $match: {
-                        admin: { $exists: true }, // admin is checked for existence using the $exists operator. This will match documents where the admin field exists, regardless of its value.
+                        admin: admin, // admin is checked with the userId of the user, who has sent the request. This will match documents where the admin field of that value(admin ID) exists.
                         inventoryType: "in",
                         bloodGroup: requestedBloodGroup,
                     },
@@ -45,7 +45,7 @@ const createInventoryController = async (req, res) => {
             const totalOutOfRequestedBloodGroup = await inventoryModel.aggregate([
                 {
                     $match: {
-                        admin: { $exists: true },
+                        admin: admin,
                         inventoryType: "out",
                         bloodGroup: requestedBloodGroup,
                     },
