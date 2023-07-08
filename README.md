@@ -18,7 +18,7 @@ With its robust functionality, Vardaan seamlessly bridges the gap between blood 
 - HTML
 - CSS
 
-## Setting up the environment:
+## Installation:
 
 In order to run this app, you will need to have npm installed on your local machine.
 To install the dependencies for this project, run the following commands in the vardaan directory of the project:
