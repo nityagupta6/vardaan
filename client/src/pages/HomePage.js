@@ -40,14 +40,17 @@ const HomePage = () => {
         <>
           <div className="container">
             <h4
-              className="ms-4"
+              // className="ms-4"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
             >
-              <i className="fa-solid fa-plus text-success py-4"></i>
               Add Inventory
+              &nbsp;
+              <img src="/plus-btn.png" alt="icon" style={{ width: "25px", height: "25px", marginRight: "5px" }} />
+
             </h4>
+
             <table className="table ">
               <thead>
                 <tr>

@@ -2,6 +2,7 @@ import React from "react";
 import { BiDonateBlood, BiUserCircle } from "react-icons/bi";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 const Header = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -17,19 +18,13 @@ const Header = () => {
   return (
     <>
       <nav className="navbar">
-        <div className="container-fluid ">
-          <div className="navbar-brand h1 ">
-            <BiDonateBlood color="red" /> Vardaan
+        <div className="container-fluid" style={{ paddingTop: "8px", paddingLeft: "45px", paddingRight: "45px" }}>
+          <div className="navbar-brand h1" style={{ fontSize: "28px" }}>
+            <img src="/logo192.png" alt="logo" width="43px" height="43px" />
+            &nbsp;
+            Vardaan
           </div>
-          <ul className="navbar-nav flex-row">
-            <li className="nav-item mx-3">
-              <p className="nav-link">
-                <BiUserCircle /> Welcome{" "}
-                {user?.name || user?.hospitalName}
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span className="badge bg-secondary">{user?.role}</span>
-              </p>
-            </li>
+          <ul className="navbar-nav flex-row" style={{ fontSize: "17.5px" }}>
             {user?.role === "admin" && (
               <>
                 {
@@ -100,13 +95,11 @@ const Header = () => {
             )} */}
 
             <li className="nav-item mx-3">
-              <button className="btn btn-danger" onClick={handleLogout}>
-                Logout
-              </button>
+              <button type="button" class="btn btn-outline-danger btn-sm" style={{ borderRadius: "20px", marginTop: "6px" }} onClick={handleLogout}>Logout</button>
             </li>
           </ul>
         </div>
-      </nav>
+      </nav >
     </>
   );
 };

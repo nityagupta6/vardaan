@@ -20,9 +20,9 @@ const DonarHome = () => {
                         At Vardaan, we understand the immense value of your generosity and compassion. Through our intuitive web application, we aim to make the blood donation process seamless, convenient, and rewarding for you. Your contribution will directly impact the lives of individuals facing medical emergencies and create a positive ripple effect within our community.
                     </p>
 
-                    <p>
+                    {/* <p>
                         Within this donor portal, you will find a range of features designed to enhance your experience and ensure that your journey as a donor is both fulfilling and effortless. Whether you are a new donor or a returning champion, this platform offers you the tools to manage your profile, schedule donations, and stay connected with our blood bank.
-                    </p>
+                    </p> */}
 
                     <p>
                         Our user-friendly interface provides you with a clear overview of your donation history, enabling you to track your impact and view the lives you have touched through your selfless act.As a donor, you play a crucial role in saving lives, and your commitment is deeply appreciated. By maintaining accurate and up-to-date information in your donor profile, you allow us to provide timely assistance to those in need. We value your trust, and our team ensures the highest level of confidentiality and privacy in handling your personal information.

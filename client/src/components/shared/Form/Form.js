@@ -99,7 +99,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                             return (
                                 <>
                                     <InputType
-                                        labelText={"email"}
+                                        labelText={"Email"}
                                         labelFor={"forEmail"}
                                         inputType={"email"}
                                         name={"email"}
@@ -152,7 +152,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                                     )}
 
                                     <InputType
-                                        labelText={"email"}
+                                        labelText={"Email"}
                                         labelFor={"forEmail"}
                                         inputType={"email"}
                                         name={"email"}
@@ -168,7 +168,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
                                     <InputType
-                                        labelText={"website"}
+                                        labelText={"Website"}
                                         labelFor={"forWebsite"}
                                         inputType={"text"}
                                         name={"website"}
@@ -201,18 +201,18 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     {formType === "login" ? (
                         <p>
                             Not registered yet? Register&nbsp;
-                            <Link to="/register">Here!</Link>
+                            <Link to="/register" style={{ color: "#C52C28" }}>Here!</Link>
                             <br />
                         </p>
                     ) : (
                         <p>
                             Already a user, Please&nbsp;
-                            <Link to="/login">Login!</Link>
+                            <Link to="/login" style={{ color: "#C52C28" }}>Login!</Link>
                         </p>
                     )}
                 </div>
                 <div className="d-flex flex-row justify-content-center">
-                    <button className="btn btn-primary" type="submit">
+                    <button class="btn btn-outline-danger btn" style={{ borderRadius: "20px", marginTop: "6px" }} type="submit">
                         {submitBtn}
                     </button>
                 </div>
