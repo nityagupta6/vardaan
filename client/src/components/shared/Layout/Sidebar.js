@@ -16,6 +16,10 @@ const Sidebar = () => {
                 <div className="menu">
                     {user?.role === "admin" && (
                         <>
+                            <div class="menu-head"
+                            >
+                                Hello {user?.name}!
+                            </div>
                             <div
                                 className={`menu-item ${location.pathname === "/" && "active"}`}
                             >
@@ -27,7 +31,7 @@ const Sidebar = () => {
                                     }`}
                             >
                                 <i className="fa-solid fa-hand-holding-medical"></i>
-                                <Link to="/donar">Donar</Link>
+                                <Link to="/donar">Donor</Link>
                             </div>
                             <div
                                 className={`menu-item ${location.pathname === "/hospital" && "active"
@@ -40,6 +44,10 @@ const Sidebar = () => {
                     )}
                     {user?.role === "donar" && (
                         <>
+                            <div class="menu-head"
+                            >
+                                Hello {user?.name}!
+                            </div>
                             <div
                                 className={`menu-item ${location.pathname === "/hospital" && "active"
                                     }`}
@@ -58,12 +66,16 @@ const Sidebar = () => {
                     )}
                     {(user?.role === "hospital") && (
                         <>
+                            <div class="menu-head"
+                            >
+                                Hello {user?.hospitalName}!
+                            </div>
                             <div
                                 className={`menu-item ${location.pathname === "/donar" && "active"
                                     }`}
                             >
                                 <i className="fa-solid fa-hand-holding-medical"></i>
-                                <Link to="/donar">Donar</Link>
+                                <Link to="/donar">Donor</Link>
                             </div>
                             <div
                                 className={`menu-item ${location.pathname === "/consumer" && "active"

@@ -1,5 +1,4 @@
 import React from "react";
-import { BiDonateBlood, BiUserCircle } from "react-icons/bi";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -24,26 +23,19 @@ const Header = () => {
             &nbsp;
             Vardaan
           </div>
-          <ul className="navbar-nav flex-row" style={{ fontSize: "17.5px" }}>
+          <ul className="navbar-nav flex-row" style={{ fontSize: "17.5px", paddingBottom: "8px" }}>
             {user?.role === "admin" && (
               <>
-                {
-                  location.pathname === "/admin" ||
-                    location.pathname === "/donar" ||
-                    location.pathname === "/hospital" ? (
-                    <li className="nav-item mx-3">
-                      <Link to="/analytics" className="nav-link">
-                        Analytics
-                      </Link>
-                    </li>
-                  ) : (
-                    <li className="nav-item mx-3">
-                      <Link to="/admin" className="nav-link">
-                        Home
-                      </Link>
-                    </li>
-                  )
-                }
+                <li className="nav-item mx-3">
+                  <Link to="/analytics" className="nav-link">
+                    Analytics
+                  </Link>
+                </li>
+                <li className="nav-item mx-3">
+                  <Link to="/admin" className="nav-link">
+                    Home
+                  </Link>
+                </li>
               </>
             )}
             {user?.role === "donar" && (

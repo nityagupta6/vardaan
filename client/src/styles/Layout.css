@@ -1,10 +1,9 @@
 .sidebar {
-    height: 100vh !important;
-    width: 40vh !important;
-    /* border-radius: 5px; */
-    background-color: #2e2e2e;
-    box-shadow: 0 0 2px gray;
-    color: white;
+  height: 125vh !important;
+  width: 40vh !important;
+  background-color: #2e2e2e;
+  box-shadow: 0 0 2px gray;
+  color: rgb(206, 206, 206);
   }
 
   .menu {
@@ -13,29 +12,42 @@
   
   .menu-item {
     padding-top: 30px;
-    padding-left: 30px;
+    padding-left: 80px;
   }
   
   .menu-item a {
-    color: white;
+    color: rgb(206, 206, 206);
     text-decoration: none;
     font-size: 1.2rem;
   }
   
+  
   .menu-item i {
     font-size: 1.2rem;
     margin: 0 15px;
-    color: white;
+    color: rgb(206, 206, 206);
   }
   
   .active {
     background-color: white;
     padding: 10px;
-    padding-left: 30px;
+    padding-left: 80px;
     margin-top: 25px;
   }
   
   .active a,
   .active i {
     color: #C52C28;
+  }
+  
+  .menu-head{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 55px;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  .menu-item a:hover{
+    color: #C52C28 ;
   }

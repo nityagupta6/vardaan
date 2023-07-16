@@ -30,9 +30,8 @@ const HomePage = () => {
   }, []);
   return (
     <Layout>
-      {/* {user?.role === "admin" && navigate("/admin")}; */}
-      {user?.role === "donar" && navigate("/donarhome")};
-      {user?.role === "hospital" && navigate("/hospitalhome")};
+      {user?.role === "donar" && navigate("/donarhome")}
+      {user?.role === "hospital" && navigate("/hospitalhome")}
       {error && <span>{alert(error)}</span>}
       {loading ? (
         <Spinner />
@@ -43,7 +42,7 @@ const HomePage = () => {
               // className="ms-4"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-              style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
+              style={{ cursor: "pointer", display: "flex", alignItems: "center", marginBottom: "15px", marginTop: "45px" }}
             >
               Add Inventory
               &nbsp;

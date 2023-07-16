@@ -36,8 +36,33 @@ const DonarHome = () => {
                     Warm regards,
                     <br /><br />
                     <h6>The Vardaan Blood Bank Team</h6>
-
-
+                    <br />
+                    <div className="d-flex">
+                        <div className="card pmd-card text-center custom-card">
+                            <div className="card-body">
+                                <br />
+                                <i class="fa-solid fa-phone" style={{ color: "#c52c28", fontSize: "60px" }}></i>
+                                <br /><br />
+                                <h3 className="card-title">Give us a call</h3><br />
+                                <p className="card-subtitle mb-3">+91-91363XXXXX or <br />+91-79833XXXXX </p><br /><br />
+                                <p className="card-text">Open 24/7</p>
+                            </div>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div className="card pmd-card text-center custom-card">
+                            <div className="card-body">
+                                <br />
+                                <i class="fa-solid fa-location-dot" style={{ color: "#c52c28", fontSize: "60px" }}></i>
+                                <br /><br />
+                                <h3 className="card-title">Visit us</h3><br />
+                                <p className="card-subtitle mb-3">Vardaan Blood Donation Center<br />
+                                    123, Gandhi Nagar<br />
+                                    Rajouri Garden, New Delhi<br />
+                                    Delhi, Zip: 110027</p>
+                                <p className="card-text">Open 24/7</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
