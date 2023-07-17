@@ -9,7 +9,7 @@ const AdminHome = () => {
             <div className="container">
                 <div className="d-felx flex-column mt-4">
                     <h1>
-                        Welcome to the Admin Page of <i className="text-success">{user?.name}</i>
+                        Welcome to the Admin Page of<i style={{ color: "#316CF4" }}> {user?.name}</i>
                     </h1>
                     <h4>A Blood Bank!</h4>
                     <hr />

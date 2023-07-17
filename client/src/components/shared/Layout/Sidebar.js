@@ -31,14 +31,14 @@ const Sidebar = () => {
                                     }`}
                             >
                                 <i className="fa-solid fa-hand-holding-medical"></i>
-                                <Link to="/donar">Donor</Link>
+                                <Link to="/donar">Donors</Link>
                             </div>
                             <div
                                 className={`menu-item ${location.pathname === "/hospital" && "active"
                                     }`}
                             >
                                 <i className="fa-solid fa-hospital"></i>
-                                <Link to="/hospital">Hospital</Link>
+                                <Link to="/hospital">Hospitals</Link>
                             </div>
                         </>
                     )}
@@ -53,7 +53,7 @@ const Sidebar = () => {
                                     }`}
                             >
                                 <i className="fa-solid fa-hospital"></i>
-                                <Link to="/hospital">Hospital</Link>
+                                <Link to="/hospital">Hospitals</Link>
                             </div>
                             <div
                                 className={`menu-item ${location.pathname === "/donation" && "active"
@@ -75,7 +75,7 @@ const Sidebar = () => {
                                     }`}
                             >
                                 <i className="fa-solid fa-hand-holding-medical"></i>
-                                <Link to="/donar">Donor</Link>
+                                <Link to="/donar">Donors</Link>
                             </div>
                             <div
                                 className={`menu-item ${location.pathname === "/consumer" && "active"

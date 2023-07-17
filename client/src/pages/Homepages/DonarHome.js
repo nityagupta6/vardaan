@@ -9,8 +9,9 @@ const DonarHome = () => {
             <div className="container">
                 <div className="d-felx flex-column mt-4">
                     <h1>
-                        Welcome <i className="text-success">{user?.name}</i>
+                        Welcome <i style={{ color: "#316CF4" }}>{user?.name}</i>
                     </h1>
+
                     <h4>To the Donor Page of the Vardaan Blood Bank!</h4>
                     <hr />
                     <p>
@@ -66,7 +67,7 @@ const DonarHome = () => {
 
                 </div>
             </div>
-        </Layout>
+        </Layout >
     );
 };
 

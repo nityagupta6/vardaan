@@ -9,7 +9,7 @@ const HospitalHome = () => {
             <div className="container">
                 <div className="d-felx flex-column mt-4">
                     <h1>
-                        Welcome <i className="text-success">{user?.hospitalName}</i>
+                        Welcome <i style={{ color: "#316CF4" }}>{user?.hospitalName}</i>
                     </h1>
                     <h4>To the Hospital Page of Vardaan Blood Bank!</h4>
                     <hr />
